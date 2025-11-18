@@ -261,6 +261,10 @@
         margin: 0.25rem;
         transition: all 0.3s ease;
     }
+    .tag-special {
+        background-color: gold;
+        border: 1px goldenrod solid
+    }
 
     .tag:hover {
         background-color: var(--primary-color);
@@ -939,125 +943,7 @@
         justify-content: center;
     }
 
-    /* Projects Section */
-    .projects {
-        padding: 6rem 0;
-        background-color: var(--background-dark);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .projects::before {
-        content: '';
-        position: absolute;
-        top: -50px;
-        left: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .projects-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-bottom: 3rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .project-card {
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        position: relative;
-    }
-
-    .project-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, rgba(37, 99, 235, 0), rgba(37, 99, 235, 0.05));
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 0;
-    }
-
-    .project-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-card:hover::before {
-        opacity: 1;
-    }
-
-    .project-content {
-        padding: 1.5rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .project-content h3 {
-        margin-bottom: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .project-content h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .project-content p {
-        color: var(--text-light);
-        margin-bottom: 1rem;
-        font-size: 0.9rem;
-    }
-
-    .project-tags {
-        margin-bottom: 1rem;
-    }
-
-    .project-image {
-        height: 200px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    .project-image::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(37, 99, 235, 0.1);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-
-    .project-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: var(--transition);
-    }
-
-    .project-card:hover .project-image img {
-        transform: scale(1.05);
-    }
-
-    .project-card:hover .project-image::after {
-        opacity: 1;
-    }
+    
 
     .contributors {
         display: flex;
@@ -1499,6 +1385,231 @@
             transform: translateY(0);
         }
     }
+    
+.name-animate span {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(15px);
+    transform-origin: bottom;
+    animation: flipUp 0.6s cubic-bezier(.25,.8,.25,1) forwards;
+}
+
+@keyframes flipUp {
+    0% {
+        opacity: 0;
+        transform: rotateX(90deg) translateY(20px);
+    }
+    60% {
+        opacity: 1;
+        transform: rotateX(-10deg) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateX(0deg) translateY(0);
+    }
+}
+
+.name-wash {
+    display: inline-flex;
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    background-size: 200%;
+    background-position: -100%;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    opacity: 0;
+    transform: translateY(15px);
+    animation: 
+    jumpIn 0.8s ease forwards,
+    washIn 2s ease forwards 0.2s;
+
+
+}
+
+@keyframes washIn {
+    0% {
+        opacity: 0;
+        background-position: -100%;
+        color: transparent;
+    }
+    50% {
+        opacity: 0.5;
+        background-position: 0%;
+    }
+    100% {
+        opacity: 1;
+        background-position: 100%;
+        color: var(--primary-color); /* <- final text color after wash 👍 */
+        -webkit-text-fill-color: var(--primary-color);; /* safari fix */
+    }
+}
+@keyframes jumpIn {
+    0% {
+        transform: translateY(15px); 
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+        .projects {
+            background-color: var(--background-light);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Wide cards span full width */
+        .project-card-wide {
+            grid-column: 1 / -1;
+            min-height: 450px;
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Tall cards span 1 column, auto height */
+        .project-card-tall {
+            grid-column: span 1;
+            min-height: 500px;
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark overlay for readability */
+        .project-card-wide::before,
+        .project-card-tall::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .project-card-wide:hover,
+        .project-card-tall:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card-wide:hover::before,
+        .project-card-tall:hover::before {
+            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.3), rgba(0, 0, 0, 0.9));
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .project-content h3 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-content h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-content p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background-color: rgba(37, 99, 235, 0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .website-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            width: fit-content;
+        }
+
+        .website-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .website-link i {
+            font-size: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-card-tall:last-child {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card-wide,
+            .project-card-tall {
+                grid-column: span 1;
+                min-height: 400px;
+            }
+
+            .project-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -1540,7 +1651,13 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Hi, I'm <span class="highlight">Evan Varan</span></h1>
+                    <h1>
+                        Hi, I'm 
+                        <span class="highlight name-wash">
+                            Evan Varan
+                        </span>
+                    </h1>
+
                     <p>Full-Stack Developer & Electrical Engineer</p>
                     <div class="cta-buttons">
                         <a href="#contact" class="btn primary-btn">Contact Me</a>
@@ -1575,7 +1692,7 @@ With a strong foundation in both software development and electrical systems, I 
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Experience & Projects</h2>
-            <p class="section-description">My professional journey and key projects</p>
+            <p class="section-description">My professional journey and key projects.</p>
             
             <!-- Timeline legend with updated colors -->
             <div class="timeline-legend">
@@ -1626,9 +1743,6 @@ With a strong foundation in both software development and electrical systems, I 
                         <h4>From the Heart Tutoring</h4>
                         <p>04/2022 – Present</p>
                         <p>Designed and deployed a responsive company website with AWS.</p>
-                        <a href="https://fromthehearttutoring.com" target="_blank" class="website-link">
-                            <i class="fas fa-globe"></i> Visit Website
-                        </a>
                     </div>
                 </div>
                 
@@ -1697,7 +1811,7 @@ With a strong foundation in both software development and electrical systems, I 
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <p class="section-description">My academic background</p>
+            <p class="section-description">My academic background.</p>
             
             <div class="education-container">
                 <div class="education-card">
@@ -1729,8 +1843,8 @@ With a strong foundation in both software development and electrical systems, I 
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-description">Technologies and tools I work with</p>
+            <h2 class="section-title">Specialized Expertise</h2>
+            <p class="section-description">What I can contribute to a project.</p>
             
             <!-- Enhanced Skills Overview Section -->
             <div class="skills-overview-wrapper">
@@ -1748,8 +1862,16 @@ With a strong foundation in both software development and electrical systems, I 
                         <div class="skill-area-icon">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h3>Web Design</h3>
+                        <h3>Frontend Development</h3>
                         <p>Creating responsive, user-friendly websites with modern frameworks and design principles</p>
+                    </div>
+
+                    <div class="skill-area">
+                        <div class="skill-area-icon">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <h3>Full-Stack & Cloud</h3>
+                        <p>Combining front-end and back-end development with API design and cloud technologies, including REST APIs, AWS, and Azure.</p>
                     </div>
 
                     <div class="skill-area">
@@ -1759,14 +1881,6 @@ With a strong foundation in both software development and electrical systems, I 
                         <h3>Integrated Systems</h3>
                         <p>Designing and developing embedded solutions with Arduino, microcontrollers, and custom IC chip integration for smart devices and automation</p>
                     </div>
-                    
-                    <div class="skill-area">
-                        <div class="skill-area-icon">
-                            <i class="fa-solid fa-cloud"></i>
-                        </div>
-                        <h3>Cloud Developemnt</h3>
-                        <p>Developing full-stack servless architecture, particular through the use of AWS.</p>
-                    </div>
                 
                     
                 </div>
@@ -1774,7 +1888,8 @@ With a strong foundation in both software development and electrical systems, I 
             
             <!-- Detailed Skills Section -->
             <div class="skills-detailed">
-                <h3 class="skills-detailed-title">Specialized Expertise</h3>
+                <h3 class="skills-detailed-title">Skills</h3>
+                <p class="section-description">How I like to build a project. Favorites are marked in gold.</p>
                 <div class="skills-container">
                     <div class="skill-card">
                         <div class="skill-icon">
@@ -1782,20 +1897,20 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                         <h3>Languages</h3>
                         <div class="skill-tags">
-                            <span class="tag">C#</span>
+                            <span class="tag tag-special">C#</span>
                             <span class="tag">Java</span>
                             <span class="tag">Python</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">T-SQL</span>
-                            <span class="tag">NoSQL</span>
                             <span class="tag">C++</span>
-                            <span class="tag">JavaScript</span>
                             <span class="tag">Go</span>
                             <span class="tag">Lua</span>
                             <span class="tag">C</span>
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">TypeScript</span>
+                            <span class="tag tag-special">SQL</span>
+                            <span class="tag">T-SQL</span>
+                            <span class="tag">NoSQL</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag tag-special">HTML</span>
+                            <span class="tag tag-special">CSS</span>
+                            <span class="tag tag-special">TypeScript</span>
                         </div>
                     </div>
                     
@@ -1803,27 +1918,47 @@ With a strong foundation in both software development and electrical systems, I 
                         <div class="skill-icon">
                             <i class="fas fa-layer-group"></i>
                         </div>
-                        <h3>Frameworks</h3>
+                        <h3>Frameworks & Libraries</h3>
                         <div class="skill-tags">
-                            <span class="tag">.NET</span>
-                            <span class="tag">REST APIs</span>
+                            <span class="tag tag-special">.NET</span>         
+                            <span class="tag tag-special">REST APIs</span>
                             <span class="tag">ASP.NET</span>
-                            <span class="tag">React</span>
-                            <span class="tag">Vite</span>
+                            <span class="tag tag-special">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Next.js</span>
+                            <span class="tag tag-special">Vite</span>
                             <span class="tag">Tailwind</span>
                             <span class="tag">Java SDK</span>
-                            <span class="tag">GitHub</span>
+                            <span class="tag tag-special">GitHub</span>
                             <span class="tag">Sklearn</span>
                             <span class="tag">Tensorflow</span>
                             <span class="tag">PyTorch</span>
-                            <span class="tag">Microsoft SQL Server</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag tag-special">Microsoft SQL Server</span>
                             <span class="tag">SSMS</span>
+                            <span class="tag">Entity Framework</span>
                             <span class="tag">Jupyter Notebooks</span>
                             <span class="tag">Pandas</span>
                             <span class="tag">Numpy</span>
                         </div>
                     </div>
-                    
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Cloud & Deployment Tools</h3>
+                        <div class="skill-tags">
+                            <span class="tag tag-special">AWS</span>
+                            <span class="tag">Azure</span>
+                            <span class="tag">Vercel</span>
+                            <span class="tag">App Runner</span>
+                            <span class="tag">Lambda</span>
+                            <span class="tag">S3</span>
+                            <span class="tag">ECR</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">AWS SDK</span>
+                        </div>
+                    </div>
                     <div class="skill-card">
                         <div class="skill-icon">
                             <i class="fas fa-laptop-code"></i>
@@ -1831,7 +1966,7 @@ With a strong foundation in both software development and electrical systems, I 
                         <h3>IDEs & Platforms</h3>
                         <div class="skill-tags">
                             <span class="tag">Visual Studio</span>
-                            <span class="tag">Visual Studio Code</span>
+                            <span class="tag tag-special">Visual Studio Code</span>
                             <span class="tag">PyCharm</span>
                             <span class="tag">IntelliJ</span>
                             <span class="tag">Rider</span>
@@ -1843,26 +1978,13 @@ With a strong foundation in both software development and electrical systems, I 
                             <span class="tag">Ubuntu Linux</span>
                             <span class="tag">Debian Linux</span>
                             <span class="tag">Raspberry Pi</span>
-                            <span class="tag">Arduino</span>
+                            <span class="tag tag-special">Arduino</span>
                             <span class="tag">ESP32</span>
+                            <span class="tag">Postman</span>
                         </div>
                     </div>
                     
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Cloud Developement Tools</h3>
-                        <div class="skill-tags">
-                            <span class="tag">AWS</span>
-                            <span class="tag">App Runner</span>
-                            <span class="tag">Lambda</span>
-                            <span class="tag">S3</span>
-                            <span class="tag">ECR</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">AWS SDK</span>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -1871,82 +1993,199 @@ With a strong foundation in both software development and electrical systems, I 
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Favorite Projects</h2>
-            <p class="section-description">Check out some of my recent work</p>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-description">Check out some of my recent work.</p>
             
             <div class="projects-container">
-                <!-- Projects ordered from most recent to least recent -->
-                <!-- From the Heart Tutoring Website -->
-                <div class="project-card">
+                <!-- Wide Project Card 1 -->
+                <div class="project-card-wide" style="background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);">
                     <div class="project-content">
-                        <h3>From the Heart Tutoring Website</h3>
-                        <h4>From the Heart Tutoring</h4>
-                        <p>04/2022 – Present</p>
+                        <h3>Juno Application Assistant</h3>
+                        <h4>Personal</h4>
+                        <p>06/2025 – 11/2025</p>
+                        <p>A full-stack application using React, Tailwind CSS, C#, and SQL that leverages AI to assist software developers with job applications. Deployed via Azure and Vercel.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">C#</span>
+                            <span class="project-tag">Microsoft SQL Server</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">Tailwind CSS</span>
+                            <span class="project-tag">Azure</span>
+                        </div>
+                        <a href="https://juno-application-assistant.vercel.app/" target="_blank" class="website-link">
+                            <i class="fas fa-globe"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+                <!-- Wide Project Card 2 -->
+                <div class="project-card-wide" style="background: radial-gradient(circle, #FFD86B 0%, #2D2313 100%);
+">
+                    <div class="project-content">
+                        <h3>Little Lemon</h3>
+                        <h4>Meta Course</h4>
+                        <p>10/2025 – 11/2025</p>
+                        <p>A full website for a Mediterranean restaurant called "Little Lemon". Contains form design and a booking process.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">JSX</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                        </div>
+                        <a href="https://meta-frontend-developement-course.vercel.app/" target="_blank" class="website-link">
+                            <i class="fas fa-globe"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+                <!-- Tall Project Card 2 -->
+                <div class="project-card-tall" style="background: radial-gradient(circle, rgba(255,210,218,1) 0%, rgba(255,171,145,1) 100%);"
+>
+                    <div class="project-content">
+                        <h3>NLE ACTS Research Project</h3>
+                        <h4 style="color: #501214; ">Texas State University<span style="color: var(--text-color);">,</span> <span style="color: green;">NLE</span></h4>
+                        <p>05/2024 – 12/2024</p>
+                        <p>Worked with Texas State University and Non-Lethal-Enterprises to develop a mass-produced timing circuit for smart crowd control emission-based defense spray.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">Software Development</span>
+                            <span class="project-tag">Circuit Design</span>
+                            <span class="project-tag">PCB Layout</span>
+                            <span class="project-tag">Embedded Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tall Project Card 3 -->
+                <div class="project-card-tall" style="background: radial-gradient(circle, #C4DBF6 0%, #11305F 100%);
+">
+                    <div class="project-content">
+                        <h3>NASA TSGC Federal Research Grant</h3>
+                        <h4 style="color: #501214; ">Texas State University <span style="color: var(--text-color);">,</span> <span style="color: #124593;">NASA</span></h4>
+                        <p>01/2024 – 05/2024</p>
+                        <p>Worked with Texas State University and NASA to research and develop a proof-of-concept autonomous lighting and camera system for lunar rovers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Embedded Systems</span>
+                            <span class="project-tag">Autonomous Systems</span>
+                            <span class="project-tag">Hardware Design</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">SDLC</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tall Project Card 1 -->
+                <div class="project-card-tall" style="background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);">
+                    <div class="project-content">
+                        <h3>Artificial Intelligence Drone Detection Project</h3>
+                        <h4 style="color: #501214; ">Texas State University</h4>
+                        <p>09/2024 – 12/2024</p>
+                        <p>Developed software in Python to implement CNNs and random forests for classifying audio clips as drone-sourced or not.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">CNN</span>
+                            <span class="project-tag">Random Forest</span>
+                            <span class="project-tag">Audio Processing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wide Project Card 3 -->
+                <div class="project-card-wide" style="background: radial-gradient(circle, #F7B6B3 0%, #0E1626 100%);">
+                    <div class="project-content">
+                        <h3>From the Heart Tutoring</h3>
+                        <h4 style="color: #F66C5F;">From the Heart Tutoring</h4>
+                        <p>01/2025 – 05/2025</p>
                         <p>Designed, developed, and deployed a responsive company website for From the Heart Tutoring, featuring service information, tutor profiles, and a booking system.</p>
                         <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">AWS</span>
-                            <span class="tag">Responsive Design</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">Responsive Design</span>
                         </div>
                         <a href="https://fromthehearttutoring.com" target="_blank" class="website-link">
                             <i class="fas fa-globe"></i> Visit Website
                         </a>
                     </div>
                 </div>
-                <!-- AI Drone Detection Project -->
-                <div class="project-card">
+                <div class="project-card-tall" style="background: radial-gradient(circle, rgba(210,255,235,1) 0%, rgba(180,220,255,1) 100%);">
                     <div class="project-content">
-                        <h3>Artificial Intelligence Drone Detection Project</h3>
-                        <h4>Texas State University</h4>
-                        <p>09/2024 – 12/2024</p>
-                        <p>Developed software in Python to implement CNNs and random forests for classifying audio clips as drone-sourced or not.</p>
+                        <h3>Lucky Shrub Landing Page</h3>
+                        <h4>Meta Course</h4>
+                        <p>09/2025 – 09/2025</p>
+                        <p>An example website for a garden company. Created to learn and practice advanced CSS & HTML concepts.</p>
                         <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">Random Forest</span>
-                            <span class="tag">Audio Processing</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">UI/UX</span>
                         </div>
                     </div>
                 </div>
+
                 
-                <!-- NLE ACTS Research Project -->
-                <div class="project-card">
+                
+                <div class="project-card-tall" style="background: radial-gradient(circle, rgba(255,210,218,1) 0%, rgba(255,171,145,1) 100%);">
                     <div class="project-content">
-                        <h3>NLE ACTS Research Project</h3>
-                        <h4>Texas State University</h4>
-                        <p>May 2024 – Dec 2024</p>
-                        <p>Worked with Texas State University and Non-Lethal-Enterprises to develop a mass-produced timing circuit for smart crowd control emission-based defense spray.</p>
+                        <h3>Digital Filter Design with Python</h3>
+                        <h4 style="color: #501214; ">Texas State University</h4>
+                        <p>01/2024 – 04/2024</p>
+                        <p>Designed and tested simple and complex filters using Python. Developed filters included lowpass, highpass, bandpass, bandstop, and many others.</p>
                         <div class="project-tags">
-                            <span class="tag">Arduino</span>
-                            <span class="tag">Software Development</span>
-                            <span class="tag">Circuit Design</span>
-                            <span class="tag">PCB Layout</span>
-                            <span class="tag">Embedded Systems</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Filter Design</span>
+                            <span class="project-tag">Jupyter</span>
+                            <span class="project-tag">Pycharm</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- NASA TSGC Project -->
-                <div class="project-card">
+                <div class="project-card-tall" style="background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(210,225,245,1) 100%);
+">
                     <div class="project-content">
-                        <h3>NASA TSGC Federal Research Grant</h3>
-                        <h4>Texas State University, NASA</h4>
-                        <p>01/2024 – 05/2024</p>
-                        <p>Worked with Texas State University and NASA to research and develop a proof-of-concept autonomous lighting and camera system for lunar rovers.</p>
+                        <h3>Full Shell in C</h3>
+                        <h4 style="color: #501214; ">Texas State University</h4>
+                        <p>01/2024 – 04/2024</p>
+                        <p>A Linux shell which contains piping, forking, and page algorithms.</p>
                         <div class="project-tags">
-                            <span class="tag">Embedded Systems</span>
-                            <span class="tag">Autonomous Systems</span>
-                            <span class="tag">Hardware Design</span>
-                            <span class="tag">Robotics</span>
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">Linux</span>
+                            <span class="project-tag">Clion</span>
+                            <span class="project-tag">Terminal</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="project-card-tall" style="background: radial-gradient(circle, rgba(225,200,255,1) 0%, rgba(168,198,255,1) 100%);">
+                    <div class="project-content">
+                        <h3>Full 8-bit Adder CMOS Design</h3>
+                        <h4 style="color: #501214; ">Texas State University</h4>
+                        <p>10/2023 – 12/2023</p>
+                        <p>Designed and created a full 8-bit adder through the implementation of CMOS transistors.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">VLSI Design</span>
+                            <span class="project-tag">Digital Logic</span>
+                            <span class="project-tag">Microwind</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-tall" style="background: radial-gradient(circle, rgba(255,245,200,1) 0%, rgba(255,205,214,1) 100%);">
+                    <div class="project-content">
+                        <h3>Decompiler Construction using Go</h3>
+                        <h4 style="color: #501214; ">Texas State University</h4>
+                        <p>04/2023 – 05/2023</p>
+                        <p>Created a full-functioning ARM decompiler using the Go programming language.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Go</span>
+                            <span class="project-tag">Assembly</span>
+                            <span class="project-tag">ARM</span>
+                            <span class="project-tag">Computer Architecture</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- </CHANGE> -->
 
     <!-- Certifications Section -->
     <section id="certifications" class="certifications">
