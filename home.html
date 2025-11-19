@@ -6,1626 +6,7 @@
 <title>Evan Varan - Full-Stack Developer & Electrical Engineer</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-    /* Base Styles */
-    :root {
-        --primary-color: #2563eb;
-        --primary-hover: #1d4ed8;
-        --secondary-color: #f3f4f6;
-        --text-color: #1f2937;
-        --text-light: #6b7280;
-        --background-light: #ffffff;
-        --background-dark: #f9fafb;
-        --border-color: #e5e7eb;
-        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --border-radius: 8px;
-        --transition: all 0.3s ease;
-        --project-color: #dc2626; /* Changed to red for better contrast */
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--background-light);
-        overflow-x: hidden;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-    }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    ul {
-        list-style: none;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 1rem;
-        position: relative;
-        display: inline-block;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50px;
-        height: 3px;
-        background-color: var(--primary-color);
-        border-radius: 10px;
-    }
-
-    .section-description {
-        text-align: center;
-        color: var(--text-light);
-        max-width: 800px;
-        margin: 2rem auto 3rem;
-        font-size: 1.1rem;
-    }
-
-    .highlight {
-        color: var(--primary-color);
-    }
-
-    /* Animated Background */
-    .animated-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        opacity: 0.05;
-        pointer-events: none;
-    }
-
-    .animated-bg span {
-        position: absolute;
-        display: block;
-        width: 20px;
-        height: 20px;
-        background: var(--primary-color);
-        border-radius: 50%;
-        animation: move 25s linear infinite;
-        opacity: 0.3;
-    }
-
-    .animated-bg span:nth-child(1) {
-        top: 10%;
-        left: 20%;
-        animation-duration: 15s;
-        width: 15px;
-        height: 15px;
-    }
-
-    .animated-bg span:nth-child(2) {
-        top: 40%;
-        left: 70%;
-        animation-duration: 25s;
-        width: 25px;
-        height: 25px;
-    }
-
-    .animated-bg span:nth-child(3) {
-        top: 70%;
-        left: 30%;
-        animation-duration: 20s;
-        width: 20px;
-        height: 20px;
-    }
-
-    .animated-bg span:nth-child(4) {
-        top: 20%;
-        left: 80%;
-        animation-duration: 18s;
-        width: 18px;
-        height: 18px;
-    }
-
-    .animated-bg span:nth-child(5) {
-        top: 60%;
-        left: 10%;
-        animation-duration: 22s;
-        width: 22px;
-        height: 22px;
-    }
-
-    .animated-bg span:nth-child(6) {
-        top: 80%;
-        left: 60%;
-        animation-duration: 17s;
-        width: 17px;
-        height: 17px;
-    }
-
-    @keyframes move {
-        0% {
-            transform: translate(0, 0) rotate(0deg) scale(1);
-        }
-        25% {
-            transform: translate(100px, 100px) rotate(90deg) scale(1.2);
-        }
-        50% {
-            transform: translate(200px, 50px) rotate(180deg) scale(1);
-        }
-        75% {
-            transform: translate(100px, -100px) rotate(270deg) scale(0.8);
-        }
-        100% {
-            transform: translate(0, 0) rotate(360deg) scale(1);
-        }
-    }
-
-    /* Buttons */
-    .btn {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        border-radius: var(--border-radius);
-        font-weight: 500;
-        cursor: pointer;
-        transition: var(--transition);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-    }
-
-    .btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: all 0.4s;
-        z-index: -1;
-    }
-
-    .btn:hover::before {
-        left: 0;
-    }
-
-    .primary-btn {
-        background-color: var(--primary-color);
-        color: white;
-        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25);
-    }
-
-    .primary-btn:hover {
-        background-color: var(--primary-hover);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
-    }
-
-    .secondary-btn {
-        background-color: var(--secondary-color);
-        color: var(--text-color);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .secondary-btn:hover {
-        background-color: var(--border-color);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .small-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /* Tags */
-    .tag {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        background-color: var(--secondary-color);
-        border-radius: 50px;
-        font-size: 0.8rem;
-        margin: 0.25rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
-    .tag-special {
-        background-color: gold;
-        /* border: 1px goldenrod solid */
-    }
-
-    .tag:hover {
-        background-color: var(--primary-color);
-        color: white;
-        transform: translateY(-2px);
-    }
-
-    /* Header */
-    header {
-        position: sticky;
-        top: 0;
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(5px);
-        box-shadow: var(--shadow);
-        z-index: 100;
-    }
-
-    header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 80px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        position: relative;
-    }
-
-    .logo::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--primary-color);
-        transition: width 0.3s ease;
-    }
-
-    .logo:hover::after {
-        width: 100%;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 2rem;
-    }
-
-    .nav-links a {
-        font-weight: 500;
-        transition: var(--transition);
-        position: relative;
-    }
-
-    .nav-links a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background-color: var(--primary-color);
-        transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--primary-color);
-    }
-
-    .nav-links a:hover::after {
-        width: 100%;
-    }
-
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 6px;
-        cursor: pointer;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 30px;
-        height: 3px;
-        background-color: var(--text-color);
-        transition: var(--transition);
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 6rem 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: -100px;
-        right: -100px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .hero::after {
-        content: '';
-        position: absolute;
-        bottom: -100px;
-        left: -100px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .hero-content {
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .hero-text {
-        flex: 1;
-    }
-
-    .hero-text h1 {
-        font-size: 3.5rem;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-    }
-
-    .hero-text p {
-        font-size: 1.25rem;
-        color: var(--text-light);
-        margin-bottom: 2rem;
-    }
-
-    .cta-buttons {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: var(--secondary-color);
-        transition: var(--transition);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .social-links a:hover {
-        background-color: var(--primary-color);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
-    }
-
-   /* Hero Image / Profile Picture CSS */
-    .hero-image {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        position: relative;
-    }
-
-    .hero-image::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 380px;
-        height: 380px;
-        border-radius: 50%;
-        background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
-        z-index: -1;
-    }
-
-    .hero-image img {
-        width: 350px;
-        height: 350px;
-        border-radius: 50%;
-        object-fit: cover;
-        object-position: center;
-        border: 4px solid white;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: all 0.5s ease;
-    }
-
-    .hero-image img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    /* About Section */
-    .about {
-        padding: 6rem 0;
-        background-color: var(--background-dark);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .about::before {
-        content: '';
-        position: absolute;
-        top: -50px;
-        left: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    /* Experience Section */
-    .experience {
-        padding: 6rem 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .experience::after {
-        content: '';
-        position: absolute;
-        bottom: -50px;
-        right: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .timeline::after {
-        content: '';
-        position: absolute;
-        width: 2px;
-        background-color: var(--border-color);
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -1px;
-    }
-
-    .timeline-item {
-        padding: 10px 40px;
-        position: relative;
-        width: 50%;
-        box-sizing: border-box;
-    }
-
-    .timeline-item::after {
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: var(--primary-color);
-        border-radius: 50%;
-        top: 15px;
-        z-index: 1;
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    
-
-    .left {
-        left: 0;
-        text-align: right;
-    }
-
-    .right {
-        left: 50%;
-    }
-
-    .left::after {
-        right: -10px;
-    }
-
-    .right::after {
-        left: -10px;
-    }
-
-    .timeline-content {
-        padding: 20px;
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-        box-shadow: var(--shadow);
-        transition: all 0.3s ease;
-    }
-
-    .timeline-content:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .timeline-content h3 {
-        margin-bottom: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .timeline-content h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .timeline-content p {
-        color: var(--text-light);
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .timeline-content ul {
-        list-style: disc;
-        padding-left: 20px;
-        margin-top: 10px;
-    }
-
-    .timeline-content ul li {
-        margin-bottom: 5px;
-        font-size: 0.9rem;
-    }
-
-    /* Project Timeline Items */
-    .timeline-item.project::after {
-        background-color: var(--project-color);
-        box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
-    }
-
-    .timeline-item.project .timeline-content {
-        border-left: 3px solid var(--project-color);
-        padding: 15px;
-        transform: scale(0.95);
-        background-color: rgba(254, 242, 242, 0.5); /* Lighter red background */
-    }
-
-    .timeline-item.project .timeline-content h3 {
-        color: var(--project-color);
-        font-size: 1.1rem;
-    }
-
-    .timeline-item.project .timeline-content h4 {
-        color: #b91c1c; /* Darker red */
-        font-size: 0.9rem;
-    }
-
-    .timeline-item.project:hover .timeline-content {
-        transform: translateY(-5px) scale(0.95);
-    }
-
-    /* Timeline Legend - Simple Fix */
-    .timeline-legend {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 2rem;
-        gap: 2rem;
-    }
-
-    .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    /* Make both dots exactly the same */
-    .legend-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        display: inline-block;
-    }
-
-    .legend-dot.experience {
-        background-color: var(--primary-color);
-    }
-
-    .legend-dot.project {
-        background-color: var(--project-color);
-    }
-    
-    .timeline-item:hover::after {
-        background-color: white;
-        border: 2px solid var(--primary-color);
-    }
-
-    .timeline-item.project:hover::after{
-        background-color: white;
-        border: 2px solid var(--project-color);
-    }
-
-    /* Website link styles */
-    .website-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-        color: var(--project-color);
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-
-    .website-link:hover {
-        transform: translateX(5px);
-    }
-
-    /* Education Section */
-    .education {
-        padding: 6rem 0;
-        background-color: var(--background-dark);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .education::before {
-        content: '';
-        position: absolute;
-        top: -50px;
-        right: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .education-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .education-card {
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        border-top: 3px solid transparent;
-    }
-
-    .education-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        border-top: 3px solid var(--primary-color);
-    }
-
-    .education-card h3 {
-        margin-bottom: 0.5rem;
-        font-size: 1.25rem;
-    }
-
-    .education-card h4 {
-        color: var(--primary-color);
-        margin-bottom: 0.5rem;
-        font-size: 1rem;
-    }
-
-    .education-card p {
-        color: var(--text-light);
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-    }
-
-    .education-card ul {
-        list-style: disc;
-        padding-left: 20px;
-        margin-top: 10px;
-    }
-
-    .education-card ul li {
-        margin-bottom: 5px;
-        font-size: 0.9rem;
-    }
-
-    /* Skills Section */
-    .skills {
-        padding: 6rem 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .skills::after {
-        content: '';
-        position: absolute;
-        bottom: -50px;
-        left: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    /* Skills Overview Section - Enhanced to stand out more */
-    .skills-overview-wrapper {
-        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        padding: 3rem 0;
-        margin: 0 -20px 5rem -20px;
-        border-radius: 16px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .skills-overview-wrapper::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232563eb' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        opacity: 0.5;
-        z-index: 0;
-    }
-
-    .skills-overview-title {
-    text-align: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 2.5rem;
-    color: var(--text-color); /* Changed from primary-color to text-color (black) */
-    position: relative;
-    z-index: 1;
-}
-
-    .skills-overview {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        padding: 0 2rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .skill-area {
-    background-color: white;
-    border-radius: var(--border-radius);
-    padding: 2.5rem 2rem;
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
-    text-align: left; /* Changed from center to left */
-    transition: var(--transition);
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-    .skill-area::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: linear-gradient(90deg, var(--primary-color), #60a5fa);
-    }
-
-    .skill-area:hover {
-        transform: translateY(-15px);
-        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-    }
-
-    .skill-area-icon {
-    font-size: 2.8rem;
-    color: var(--primary-color);
-    margin-bottom: 1.8rem;
-    width: 100px;
-    height: 100px;
-    background-color: rgba(37, 99, 235, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-    margin: 0 0 1.8rem 0; /* Changed from "0 auto 1.8rem auto" to "0 0 1.8rem 0" */
-}
-
-    .skill-area:hover .skill-area-icon {
-        transform: scale(1.1) rotate(10deg);
-        background-color: var(--primary-color);
-        color: white;
-        box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
-    }
-
-    .skill-area h3 {
-        margin-bottom: 1rem;
-        font-size: 1.6rem;
-        color: var(--primary-color);
-    }
-
-    .skill-area p {
-        color: var(--text-light);
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-
-    /* Detailed Skills Section */
-    .skills-detailed {
-        margin-top: 5rem;
-    }
-
-    .skills-detailed-title {
-        text-align: center;
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin-bottom: 2.5rem;
-        color: var(--text-color);
-    }
-
-    .skills-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .skill-card {
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        text-align: center;
-        transition: var(--transition);
-        border-bottom: 3px solid transparent;
-    }
-
-    .skill-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        border-bottom: 3px solid var(--primary-color);
-    }
-
-    .skill-icon {
-        font-size: 2.5rem;
-        color: var(--primary-color);
-        margin-bottom: 1.5rem;
-        transition: all 0.3s ease;
-    }
-
-    .skill-card:hover .skill-icon {
-        transform: scale(1.2);
-    }
-
-    .skill-card h3 {
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-    }
-
-    .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    
-
-    .contributors {
-        display: flex;
-        margin-top: 1rem;
-    }
-
-    .contributor-img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        border: 2px solid white;
-        margin-left: -10px;
-        transition: all 0.3s ease;
-    }
-
-    .contributor-img:first-child {
-        margin-left: 0;
-    }
-
-    .contributor-img:hover {
-        transform: translateY(-3px);
-    }
-
-    /* Certifications Section */
-    .certifications {
-        padding: 6rem 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .certifications::after {
-        content: '';
-        position: absolute;
-        bottom: -50px;
-        right: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .certifications-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .certification-card {
-        background-color: var(--background-light);
-        border-radius: var(--border-radius);
-        padding: 1.5rem;
-        box-shadow: var(--shadow);
-        width: 200px;
-        text-align: center;
-        transition: var(--transition);
-        border-left: 3px solid transparent;
-    }
-
-    .certification-card:hover {
-        transform: translateY(-10px) rotate(2deg);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        border-left: 3px solid var(--primary-color);
-    }
-
-    .certification-icon {
-        font-size: 2rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        transition: all 0.3s ease;
-    }
-    .certification-icon-special {
-        font-size: 2rem;
-        color: gold;
-        margin-bottom: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .certification-card:hover .certification-icon, .certification-card:hover .certification-icon-special  {
-        transform: rotate(-10deg);
-    }
-
-    .certification-card h3 {
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
-    }
-
-    .certification-card p {
-        color: var(--text-light);
-        font-size: 0.8rem;
-    }
-
-    /* Awards Section */
-    .awards {
-        padding: 6rem 0;
-        background-color: var(--background-dark);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .awards::before {
-        content: '';
-        position: absolute;
-        top: -50px;
-        right: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .awards-container {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-    }
-
-    .awards-list {
-        list-style: none;
-        padding: 0;
-    }
-
-    .awards-list li {
-        position: relative;
-        padding-left: 30px;
-        margin-bottom: 1.5rem;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-    }
-
-    .awards-list li::before {
-        content: '\f091';
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        position: absolute;
-        left: 0;
-        color: var(--primary-color);
-        transition: all 0.3s ease;
-    }
-
-    .awards-list li:hover {
-        transform: translateX(5px);
-    }
-
-    .awards-list li:hover::before {
-        transform: rotate(10deg);
-    }
-
-    /* Contact Section */
-    .contact {
-        padding: 6rem 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .contact::after {
-        content: '';
-        position: absolute;
-        bottom: -50px;
-        left: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(37, 99, 235, 0.05);
-        z-index: 0;
-    }
-
-    .contact-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem 2rem;
-        background-color: var(--secondary-color);
-        border-radius: var(--border-radius);
-        transition: var(--transition);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .contact-item:hover {
-        background-color: var(--primary-color);
-        color: white;
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-    }
-
-    .contact-social {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .contact-social a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: var(--secondary-color);
-        font-size: 1.25rem;
-        transition: var(--transition);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .contact-social a:hover {
-        background-color: var(--primary-color);
-        color: white;
-        transform: translateY(-5px) rotate(10deg);
-        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-    }
-
-    /* Footer */
-    footer {
-        padding: 2rem 0;
-        background-color: var(--background-dark);
-        border-top: 1px solid var(--border-color);
-        position: relative;
-    }
-
-    footer .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    footer p {
-        color: var(--text-light);
-    }
-
-    /* Scroll to top button */
-    .scroll-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 99;
-        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
-    }
-
-    .scroll-top.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .scroll-top:hover {
-        background-color: var(--primary-hover);
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 992px) {
-        .hero-content {
-            flex-direction: column-reverse;
-            text-align: center;
-            gap: 3rem;
-        }
-        
-        .cta-buttons, .social-links {
-            justify-content: center;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-        }
-
-        .timeline::after {
-            left: 31px;
-        }
-
-        .timeline-item {
-            width: 100%;
-            padding-left: 70px;
-            padding-right: 25px;
-        }
-
-        .timeline-item::after {
-            left: 21px;
-        }
-
-        .left, .right {
-            left: 0;
-            text-align: left;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            flex-direction: column;
-            gap: 0;
-            background-color: var(--background-light);
-            box-shadow: var(--shadow);
-            z-index: 99;
-        }
-        
-        .nav-links.active {
-            display: flex;
-        }
-        
-        .nav-links li {
-            width: 100%;
-        }
-        
-        .nav-links a {
-            display: block;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .hamburger {
-            display: flex;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
-        }
-        
-        .hero-text h1 {
-            font-size: 2.5rem;
-        }
-        
-        .projects-container {
-            grid-template-columns: 1fr;
-        }
-        
-        .project-card-wide,
-        .project-card-tall {
-            max-height: 800px;
-        }
-
-        footer .container {
-            flex-direction: column;
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .contact-info {
-            flex-direction: column;
-        }
-
-        .skills-overview-wrapper {
-            padding: 2rem 0;
-        }
-
-        .skills-overview {
-            padding: 0 1rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .hero-text h1 {
-            font-size: 2rem;
-        }
-        
-        .cta-buttons {
-            flex-direction: column;
-            width: 100%;
-        }
-        
-        .btn {
-            width: 100%;
-        }
-        
-        .section-title {
-            font-size: 1.75rem;
-        }
-
-        .skills-overview-title,
-        .skills-detailed-title {
-            font-size: 1.5rem;
-        }
-
-        .skill-area {
-            padding: 2rem 1.5rem;
-        }
-
-        .skill-area-icon {
-            width: 80px;
-            height: 80px;
-            font-size: 2.2rem;
-        }
-
-        .skill-area h3 {
-            font-size: 1.4rem;
-        }
-    }
-
-    /* Animation Classes */
-    .revealed {
-        animation: fadeInUp 0.5s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-.name-animate span {
-    opacity: 0;
-    transform: rotateX(90deg) translateY(15px);
-    transform-origin: bottom;
-    animation: flipUp 0.6s cubic-bezier(.25,.8,.25,1) forwards;
-}
-
-@keyframes flipUp {
-    0% {
-        opacity: 0;
-        transform: rotateX(90deg) translateY(20px);
-    }
-    60% {
-        opacity: 1;
-        transform: rotateX(-10deg) translateY(-5px);
-    }
-    100% {
-        opacity: 1;
-        transform: rotateX(0deg) translateY(0);
-    }
-}
-
-.name-wash {
-    display: inline-flex;
-    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
-    background-size: 200%;
-    background-position: -100%;
-    -webkit-background-clip: text;
-    color: transparent;
-
-    opacity: 0;
-    transform: translateY(15px);
-    animation: 
-    jumpIn 0.8s ease forwards,
-    washIn 2s ease forwards 0.2s;
-
-
-}
-
-@keyframes washIn {
-    0% {
-        opacity: 0;
-        background-position: -100%;
-        color: transparent;
-    }
-    50% {
-        opacity: 0.5;
-        background-position: 0%;
-    }
-    100% {
-        opacity: 1;
-        background-position: 100%;
-        color: var(--primary-color); /* <- final text color after wash 👍 */
-        -webkit-text-fill-color: var(--primary-color);; /* safari fix */
-    }
-}
-@keyframes jumpIn {
-    0% {
-        transform: translateY(15px); 
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-        .projects {
-            background-color: var(--background-light);
-        }
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Wide cards span full width */
-        .project-card-wide {
-            grid-column: 1 / -1;
-            min-height: 450px;
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            background: darkblue;
-        }
-
-        /* Tall cards span 1 column, auto height */
-        .project-card-tall {
-            grid-column: span 1;
-            min-height: 500px;
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            background: #785964
-            ;
-        }
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-}
-
-        /* Dark overlay for readability */
-        .project-card-wide::before,
-        .project-card-tall::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background: rgba(0,0,0,0.25);
-            transition: var(--transition);
-        }
-
-        .project-card-wide:hover,
-        .project-card-tall:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-card-wide:hover::before,
-        .project-card-tall:hover::before {
-            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.3), rgba(0, 0, 0, 0.9));
-        }
-
-        .project-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* maybe just baseline */
-        }
-        .project-content-wide {
-            justify-content: center;
-        }
-        .project-content h3 {
-            color: white;
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-content h4 {
-            color: #AFBBF2;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .project-content p {
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 0.75rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-tag {
-            background-color: rgba(37, 99, 235, 0.2);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .website-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--primary-color);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            width: fit-content;
-        }
-
-        .website-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateX(5px);
-        }
-
-        .website-link i {
-            font-size: 1rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .projects-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card-wide,
-            .project-card-tall {
-                grid-column: span 1;
-                min-height: 400px;
-            }
-
-            .project-content h3 {
-                font-size: 1.5rem;
-            }
-        }
-
-</style>
+<link rel="stylesheet" href="home.css" type="text/css">
 </head>
 <body>
     <!-- Animated Background -->
@@ -1640,7 +21,7 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
+        <main class="container">
             <div class="logo">Evan Varan</div>
             <nav>
                 <ul class="nav-links">
@@ -1658,7 +39,7 @@
                     <span></span>
                 </div>
             </nav>
-        </div>
+        </main>
     </header>
 
     <!-- Hero Section -->
@@ -1685,7 +66,6 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Using the new profile picture -->
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profilepicture-b1bavbkv2vfPrjc0PTqV13p7NUiXCd.jpeg" alt="Evan Varan">
                 </div>
             </div>
@@ -1709,26 +89,8 @@ With a strong foundation in both software development and electrical systems, I 
             <h2 class="section-title">Career</h2>
             <p class="section-description">My professional journey as a software developer & electrical engineer.</p>
             
-            <!-- Timeline legend with updated colors -->
-            <!-- <div class="timeline-legend">
-                <div class="legend-item">
-                    <span class="legend-dot" style="background-color: #2563eb;"></span>
-                    <span>Work Experience</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-dot" style="background-color: #dc2626;"></span>
-                    <span>Project</span>
-                </div>
-            </div> -->
-            
             <div class="timeline">
-                <!-- Most recent at the top -->
-                
-                <!-- FTHT (2022-Present) - Work Experience on LEFT -->
-
-
-
-
+                <!-- Outlier AI(2025) -->
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>Software Engineer (Contract)</h3>
@@ -1741,6 +103,8 @@ With a strong foundation in both software development and electrical systems, I 
                         </ul>
                     </div>
                 </div>
+
+                <!-- Bachelors - Degree Experience on RIGHT-->
                 <div class="timeline-item project right">
                     <div class="timeline-content">
                         <h3>Bachelor's of Science in Electrical Engineering </h3>
@@ -1749,6 +113,8 @@ With a strong foundation in both software development and electrical systems, I 
                         <p>Speciality in Computer Engineering. Minors in Computer Science & Applied Mathematics.</p>
                     </div>
                 </div>
+
+                <!-- Associates - Degree Experience on RIGHT-->
                 <div class="timeline-item project right">
                     <div class="timeline-content">
                         <h3>Associates of Science in Computer Science </h3>
@@ -1756,6 +122,8 @@ With a strong foundation in both software development and electrical systems, I 
                         <p>08/2024</p>
                     </div>
                 </div>
+
+                <!-- FTHT (2022-Present) - Work Experience on LEFT -->
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>Co-Founder and Engineering Instructor</h3>
@@ -1768,48 +136,6 @@ With a strong foundation in both software development and electrical systems, I 
                         </ul>
                     </div>
                 </div>
-
-                
-                
-                <!-- FTHT Website (2022-Present) - Project on RIGHT -->
-                <!-- <div class="timeline-item project right">
-                    <div class="timeline-content">
-                        <h3>From the Heart Tutoring Website</h3>
-                        <h4>From the Heart Tutoring</h4>
-                        <p>04/2022 – Present</p>
-                        <p>Designed and deployed a responsive company website with AWS.</p>
-                    </div>
-                </div> -->
-                
-                <!-- AI Drone Detection (2024) - Project on RIGHT -->
-                <!-- <div class="timeline-item project right">
-                    <div class="timeline-content">
-                        <h3>AI Drone Detection Project</h3>
-                        <h4>Texas State University</h4>
-                        <p>09/2024 – 12/2024</p>
-                        <p>Implemented CNNs and random forests for classifying drone audio clips.</p>
-                    </div>
-                </div> -->
-                
-                <!-- NLE ACTS (2024) - Project on RIGHT -->
-                <!-- <div class="timeline-item project right">
-                    <div class="timeline-content">
-                        <h3>NLE ACTS Research Project</h3>
-                        <h4>Texas State University</h4>
-                        <p>05/2024 – 12/2024</p>
-                        <p>Developed a mass-produced timing circuit for smart crowd control emission-based defense spray.</p>
-                    </div>
-                </div> -->
-                
-                <!-- NASA TSGC (2024) - Project on RIGHT -->
-                <!-- <div class="timeline-item project right">
-                    <div class="timeline-content">
-                        <h3>NASA TSGC Research Grant</h3>
-                        <h4>Texas State University, NASA</h4>
-                        <p>01/2024 – 05/2024</p>
-                        <p>Developed a proof-of-concept autonomous lighting system for lunar rovers.</p>
-                    </div>
-                </div> -->
                 
                 <!-- Zinkerz (2022) - Work Experience on LEFT -->
                 <div class="timeline-item right">
@@ -1885,6 +211,7 @@ With a strong foundation in both software development and electrical systems, I 
             <div class="skills-overview-wrapper">
                 <h3 class="skills-overview-title">Core Expertise</h3>
                 <div class="skills-overview">
+
                     <div class="skill-area">
                         <div class="skill-area-icon">
                             <i class="fas fa-server"></i>
@@ -1916,8 +243,7 @@ With a strong foundation in both software development and electrical systems, I 
                         <h3>Integrated Systems</h3>
                         <p>Designing and developing embedded solutions with Arduino, microcontrollers, and custom IC chip integration for smart devices and automation</p>
                     </div>
-                
-                    
+                         
                 </div>
             </div>
             
@@ -2032,9 +358,9 @@ With a strong foundation in both software development and electrical systems, I 
             <p class="section-description">Check out some of my recent work.</p>
             
             <div class="projects-container">
-                <!-- Wide Project Card 1 -->
+
+                <!-- Juno Wide Card-->
                 <div class="project-card-wide" >
-                    <!-- <img src="../project-images/sasha-musiichuk-WgOIMi2klOg-unsplash.jpg" class="card-img"> -->
                     <div class="project-content project-content-wide">
                         <h3>Juno Application Assistant</h3>
                         <h4>Personal</h4>
@@ -2053,11 +379,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </a>
                     </div>
                 </div>
-                <!-- Wide Project Card 2 -->
                 
-                <!-- Tall Project Card 2 -->
+                <!-- NLE Tall Card -->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/john-mccann-bm15OYOm-Gc-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>NLE ACTS Research Project</h3>
                         <h4>Texas State University, NLE</h4>
@@ -2072,7 +396,7 @@ With a strong foundation in both software development and electrical systems, I 
                     </div>
                 </div>
 
-                <!-- Tall Project Card 3 -->
+                <!-- NASA Tall Card -->
                 <div class="project-card-tall">
                     <div class="project-content">
                         <h3>NASA TSGC Federal Research Grant</h3>
@@ -2089,9 +413,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                     </div>
                 </div>
-                <!-- Tall Project Card 1 -->
+
+                <!-- AI Drone Tall Card-->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/joe-pohle-XkvV4SS6GY4-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Artificial Intelligence Drone Detection</h3>
                         <h4>Texas State University</h4>
@@ -2106,9 +430,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                     </div>
                 </div>
-                <!-- Wide Project Card 3 -->
+
+                <!-- FTHT Wide Card -->
                 <div class="project-card-wide">
-                    <!-- <img src="../project-images/YoungGirlAndMother.webp" class="card-img"> -->
                     <div class="project-content project-content-wide">
                         <h3>From the Heart Tutoring</h3>
                         <h4>From the Heart Tutoring</h4>
@@ -2126,8 +450,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </a>
                     </div>
                 </div>
+
+                <!-- Lucky Shrub Tall Card -->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/bernd-dittrich-yUok1iOJtMo-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Lucky Shrub Landing Page</h3>
                         <h4>Meta Course</h4>
@@ -2141,11 +466,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                     </div>
                 </div>
-
                 
-                
+                <!-- Filters Tall Card -->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/tolga-ahmetler-EWIlgLF3EDo-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Digital Filter Design with Python</h3>
                         <h4>Texas State University</h4>
@@ -2159,8 +482,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                     </div>
                 </div>
+
+                <!-- Shell Tall Card -->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/freezydreamin-0Bj1foVFTdU-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Full Linux Shell Written in C</h3>
                         <h4>Texas State University</h4>
@@ -2175,8 +499,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                     </div>
                 </div>
+
+                <!-- Little Lemon Wide Card -->
                 <div class="project-card-wide">
-                    <!-- <img src="../project-images/HeroBackground.webp" class="card-img"> -->
                     <div class="project-content project-content-wide">
                         <h3>Little Lemon</h3>
                         <h4>Meta Course</h4>
@@ -2195,9 +520,8 @@ With a strong foundation in both software development and electrical systems, I 
                     </div>
                 </div>
 
-                
+                <!-- Adder Tall Card -->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/tanja-zaric-_hCJh8auZqo-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Full 8-bit Adder CMOS Design</h3>
                         <h4>Texas State University</h4>
@@ -2210,8 +534,9 @@ With a strong foundation in both software development and electrical systems, I 
                         </div>
                     </div>
                 </div>
+
+                <!-- Decompiler Tall Card -->
                 <div class="project-card-tall">
-                    <!-- <img src="../project-images/dmitry-smirnov-I-ptNIeTjZE-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Decompiler Written in Go</h3>
                         <h4>Texas State University</h4>
@@ -2228,7 +553,6 @@ With a strong foundation in both software development and electrical systems, I 
             </div>
         </div>
     </section>
-    <!-- </CHANGE> -->
 
     <!-- Certifications Section -->
     <section id="certifications" class="certifications">
@@ -2351,6 +675,7 @@ With a strong foundation in both software development and electrical systems, I 
                     <li>IEEE Member</li>
                 </ul>
             </div>
+
         </div>
     </section>
 
