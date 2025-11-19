@@ -259,11 +259,12 @@
         border-radius: 50px;
         font-size: 0.8rem;
         margin: 0.25rem;
+        font-weight: 500;
         transition: all 0.3s ease;
     }
     .tag-special {
         background-color: gold;
-        border: 1px goldenrod solid
+        /* border: 1px goldenrod solid */
     }
 
     .tag:hover {
@@ -1482,6 +1483,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            background: darkblue;
         }
 
         /* Tall cards span 1 column, auto height */
@@ -1493,6 +1495,8 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            background: #785964
+            ;
         }
 .card-img {
     width: 100%;
@@ -1508,8 +1512,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
             z-index: 1;
+            background: rgba(0,0,0,0.25);
             transition: var(--transition);
         }
 
@@ -1544,10 +1548,10 @@
         }
 
         .project-content h4 {
-            color: var(--primary-color);
+            color: #AFBBF2;
             font-size: 1rem;
             margin-bottom: 0.5rem;
-            font-weight: 800;
+            font-weight: 600;
         }
 
         .project-content p {
@@ -2029,7 +2033,8 @@ With a strong foundation in both software development and electrical systems, I 
             
             <div class="projects-container">
                 <!-- Wide Project Card 1 -->
-                <div class="project-card-wide" style="background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);">
+                <div class="project-card-wide" >
+                    <!-- <img src="../project-images/sasha-musiichuk-WgOIMi2klOg-unsplash.jpg" class="card-img"> -->
                     <div class="project-content project-content-wide">
                         <h3>Juno Application Assistant</h3>
                         <h4>Personal</h4>
@@ -2049,8 +2054,129 @@ With a strong foundation in both software development and electrical systems, I 
                     </div>
                 </div>
                 <!-- Wide Project Card 2 -->
+                
+                <!-- Tall Project Card 2 -->
+                <div class="project-card-tall">
+                    <!-- <img src="../project-images/john-mccann-bm15OYOm-Gc-unsplash.jpg" class="card-img"> -->
+                    <div class="project-content">
+                        <h3>NLE ACTS Research Project</h3>
+                        <h4>Texas State University, NLE</h4>
+                        <p>05/2024 – 12/2024</p>
+                        <p>Worked with Texas State University and Non-Lethal-Enterprises to develop a mass-produced timing circuit for smart crowd control emission-based defense spray.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">Circuit Design</span>
+                            <span class="project-tag">PCB Layout</span>
+                            <span class="project-tag">Embedded Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tall Project Card 3 -->
+                <div class="project-card-tall">
+                    <div class="project-content">
+                        <h3>NASA TSGC Federal Research Grant</h3>
+                        <h4>Texas State University, NASA</h4>
+                        <p>01/2024 – 05/2024</p>
+                        <p>Worked with Texas State University and NASA to research and develop a proof-of-concept autonomous lighting and camera system for lunar rovers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Integrated Systems</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Hardware Design</span>
+                            
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">SDLC</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tall Project Card 1 -->
+                <div class="project-card-tall">
+                    <!-- <img src="../project-images/joe-pohle-XkvV4SS6GY4-unsplash.jpg" class="card-img"> -->
+                    <div class="project-content">
+                        <h3>Artificial Intelligence Drone Detection</h3>
+                        <h4>Texas State University</h4>
+                        <p>09/2024 – 12/2024</p>
+                        <p>Developed software in Python to implement CNNs and random forests for classifying audio clips as drone-sourced or not.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">CNN</span>
+                            <span class="project-tag">Random Forest</span>
+                            <span class="project-tag">Audio Processing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Wide Project Card 3 -->
                 <div class="project-card-wide">
-                    <img src="../project-images/HeroBackground.webp" class="card-img">
+                    <!-- <img src="../project-images/YoungGirlAndMother.webp" class="card-img"> -->
+                    <div class="project-content project-content-wide">
+                        <h3>From the Heart Tutoring</h3>
+                        <h4>From the Heart Tutoring</h4>
+                        <p>01/2025 – 05/2025</p>
+                        <p>Designed, developed, and deployed a responsive company website for From the Heart Tutoring, featuring service information, tutor profiles, and a booking system.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">AWS</span>
+                            <span class="project-tag">Responsive Design</span>
+                        </div>
+                        <a href="https://fromthehearttutoring.com" target="_blank" class="website-link">
+                            <i class="fas fa-globe"></i> Visit Website
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card-tall">
+                    <!-- <img src="../project-images/bernd-dittrich-yUok1iOJtMo-unsplash.jpg" class="card-img"> -->
+                    <div class="project-content">
+                        <h3>Lucky Shrub Landing Page</h3>
+                        <h4>Meta Course</h4>
+                        <p>09/2025 – 09/2025</p>
+                        <p>An example website for a garden company. Created to learn and practice advanced CSS & HTML concepts.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">UI/UX</span>
+                            <span class="project-tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+                <div class="project-card-tall">
+                    <!-- <img src="../project-images/tolga-ahmetler-EWIlgLF3EDo-unsplash.jpg" class="card-img"> -->
+                    <div class="project-content">
+                        <h3>Digital Filter Design with Python</h3>
+                        <h4>Texas State University</h4>
+                        <p>01/2024 – 04/2024</p>
+                        <p>Designed and tested simple and complex filters using Python. Developed filters included lowpass, highpass, bandpass, bandstop, and many others.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Filter Design</span>
+                            <span class="project-tag">Jupyter</span>
+                            <span class="project-tag">Pycharm</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-tall">
+                    <!-- <img src="../project-images/freezydreamin-0Bj1foVFTdU-unsplash.jpg" class="card-img"> -->
+                    <div class="project-content">
+                        <h3>Full Linux Shell Written in C</h3>
+                        <h4>Texas State University</h4>
+                        <p>01/2024 – 04/2024</p>
+                        <p>A Linux shell which contains piping, forking, and page algorithms.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">Linux</span>
+                            <span class="project-tag">Clion</span>
+                            <span class="project-tag">Terminal</span>
+                            <span class="project-tag">Computer Networks</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-wide">
+                    <!-- <img src="../project-images/HeroBackground.webp" class="card-img"> -->
                     <div class="project-content project-content-wide">
                         <h3>Little Lemon</h3>
                         <h4>Meta Course</h4>
@@ -2068,133 +2194,13 @@ With a strong foundation in both software development and electrical systems, I 
                         </a>
                     </div>
                 </div>
-                <!-- Tall Project Card 2 -->
-                <div class="project-card-tall">
-                    <img src="../project-images/bruce-hong-asdR5r-2JxY-unsplash.jpg" class="card-img">
-                    <div class="project-content">
-                        <h3>NLE ACTS Research Project</h3>
-                        <h4 style="color: #64480C ">Texas State University<span style="color: var(--text-color);">,</span> <span style="color: green;">NLE</span></h4>
-                        <p>05/2024 – 12/2024</p>
-                        <p>Worked with Texas State University and Non-Lethal-Enterprises to develop a mass-produced timing circuit for smart crowd control emission-based defense spray.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Arduino</span>
-                            <span class="project-tag">Software Development</span>
-                            <span class="project-tag">Circuit Design</span>
-                            <span class="project-tag">PCB Layout</span>
-                            <span class="project-tag">Embedded Systems</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tall Project Card 3 -->
-                <div class="project-card-tall">      
-                    <img src="../project-images/space-microsite-space-microsite-overview-page-introduction-section_4by5.webp" class="card-img">
-                    <div class="project-content">
-                        <h3>NASA TSGC Federal Research Grant</h3>
-                        <h4 style="color: #E3284A">Texas State University <span style="color: var(--text-color);">,</span> <span style="color: #124593;">NASA</span></h4>
-                        <p>01/2024 – 05/2024</p>
-                        <p>Worked with Texas State University and NASA to research and develop a proof-of-concept autonomous lighting and camera system for lunar rovers.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Embedded Systems</span>
-                            <span class="project-tag">Autonomous Systems</span>
-                            <span class="project-tag">Hardware Design</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">C</span>
-                            <span class="project-tag">SDLC</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tall Project Card 1 -->
-                <div class="project-card-tall">
-                    <img src="../project-images/drone.jpg" class="card-img">
-                    <div class="project-content">
-                        <h3>Artificial Intelligence Drone Detection Project</h3>
-                        <h4 style="color: #501214; ">Texas State University</h4>
-                        <p>09/2024 – 12/2024</p>
-                        <p>Developed software in Python to implement CNNs and random forests for classifying audio clips as drone-sourced or not.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Machine Learning</span>
-                            <span class="project-tag">CNN</span>
-                            <span class="project-tag">Random Forest</span>
-                            <span class="project-tag">Audio Processing</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Wide Project Card 3 -->
-                <div class="project-card-wide">
-                    <img src="../project-images/YoungGirlAndMother.webp" class="card-img">
-                    <div class="project-content project-content-wide">
-                        <h3>From the Heart Tutoring</h3>
-                        <h4 style="color: #6E3538">From the Heart Tutoring</h4>
-                        <p>01/2025 – 05/2025</p>
-                        <p>Designed, developed, and deployed a responsive company website for From the Heart Tutoring, featuring service information, tutor profiles, and a booking system.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">AWS</span>
-                            <span class="project-tag">Responsive Design</span>
-                        </div>
-                        <a href="https://fromthehearttutoring.com" target="_blank" class="website-link">
-                            <i class="fas fa-globe"></i> Visit Website
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card-tall">
-                    <img src="../project-images/photo-1544727219-d2ff78f0f148.avif" class="card-img">
-                    <div class="project-content">
-                        <h3>Lucky Shrub Landing Page</h3>
-                        <h4>Meta Course</h4>
-                        <p>09/2025 – 09/2025</p>
-                        <p>An example website for a garden company. Created to learn and practice advanced CSS & HTML concepts.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">UI/UX</span>
-                        </div>
-                    </div>
-                </div>
-
-                
-                
-                <div class="project-card-tall">
-                    <img src="../project-images/signal.jpg" class="card-img">
-                    <div class="project-content">
-                        <h3>Digital Filter Design with Python</h3>
-                        <h4 style="color: #501214; ">Texas State University</h4>
-                        <p>01/2024 – 04/2024</p>
-                        <p>Designed and tested simple and complex filters using Python. Developed filters included lowpass, highpass, bandpass, bandstop, and many others.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Filter Design</span>
-                            <span class="project-tag">Jupyter</span>
-                            <span class="project-tag">Pycharm</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-tall">
-                    <img src="../project-images/Shell.jpg" class="card-img">
-                    <div class="project-content">
-                        <h3>Full Shell Written in C</h3>
-                        <h4 style="color: #501214; ">Texas State University</h4>
-                        <p>01/2024 – 04/2024</p>
-                        <p>A Linux shell which contains piping, forking, and page algorithms.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">C</span>
-                            <span class="project-tag">Linux</span>
-                            <span class="project-tag">Clion</span>
-                            <span class="project-tag">Terminal</span>
-                        </div>
-                    </div>
-                </div>
 
                 
                 <div class="project-card-tall">
-                    <img src="../project-images/8bitadder.jpg" class="card-img">
+                    <!-- <img src="../project-images/tanja-zaric-_hCJh8auZqo-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Full 8-bit Adder CMOS Design</h3>
-                        <h4 style="color: #E3284A ">Texas State University</h4>
+                        <h4>Texas State University</h4>
                         <p>10/2023 – 12/2023</p>
                         <p>Designed and created a full 8-bit adder through the implementation of CMOS transistors.</p>
                         <div class="project-tags">
@@ -2205,10 +2211,10 @@ With a strong foundation in both software development and electrical systems, I 
                     </div>
                 </div>
                 <div class="project-card-tall">
-                    <img src="../project-images/simon-lee-zft-W1kVEhg-unsplash.jpg" class="card-img">
+                    <!-- <img src="../project-images/dmitry-smirnov-I-ptNIeTjZE-unsplash.jpg" class="card-img"> -->
                     <div class="project-content">
                         <h3>Decompiler Written in Go</h3>
-                        <h4 style="color: #501214; ">Texas State University</h4>
+                        <h4>Texas State University</h4>
                         <p>04/2023 – 05/2023</p>
                         <p>Created a full-functioning ARM decompiler using the Go programming language.</p>
                         <div class="project-tags">
