@@ -867,7 +867,7 @@
         overflow: hidden;
         box-shadow: var(--shadow);
         transition: var(--transition);
-        background: #785964
+        background: #4E3B43
         ;
     }
 
@@ -912,7 +912,7 @@
     }
 
     .project-content h4 {
-        color: #AFBBF2;
+        color: #CDD3F9;
         font-size: 1rem;
         margin-bottom: 0.5rem;
         font-weight: 600;
