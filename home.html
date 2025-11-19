@@ -21,10 +21,10 @@
 
     <!-- Header -->
     <header>
-        <main class="container">
+        <div class="container">
             <div class="logo">Evan Varan</div>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="primary-navigation">
                     <li><a href="#about">About</a></li>
                     <li><a href="#experience">Career</a></li>
                     <li><a href="#education">Education</a></li>
@@ -33,18 +33,22 @@
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <!-- 
+                    Aria-expanded is when the screen reader tells the user that something is expanded or not. For insantance the screen reader should default to
+                    saying the hamburger menu here is not expanded 
+                 -->
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation" style= "border: 0px;">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </nav>
-        </main>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <main class="hero">
+        <section class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>
@@ -60,17 +64,17 @@
                         <a href="#projects" class="btn secondary-btn">View My Work</a>
                     </div>
                     <div class="social-links">
-                        <a href="https://github.com/Evan-Varan" target="_blank" aria-label="Github"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/evan-r-varan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:evan.varan@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/Evan-Varan" target="_blank" aria-label="Github"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/evan-r-varan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="mailto:evan.varan@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/profilepicture-b1bavbkv2vfPrjc0PTqV13p7NUiXCd.jpeg" alt="Evan Varan">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -212,9 +216,14 @@ With a strong foundation in both software development and electrical systems, I 
                 <h3 class="skills-overview-title">Core Expertise</h3>
                 <div class="skills-overview">
 
+
                     <div class="skill-area">
                         <div class="skill-area-icon">
-                            <i class="fas fa-server"></i>
+                            <!-- 
+                                Aria-hidden is when we want to tell the screen reader to not annouce something as it is decorative and not informative.
+                                announcing there is an icon here could be confusing to the user.
+                            -->
+                            <i class="fas fa-server" aria-hidden="true"></i>
                         </div>
                         <h3>Backend Development</h3>
                         <p>Building robust server-side applications, APIs, and database systems</p>
@@ -222,7 +231,7 @@ With a strong foundation in both software development and electrical systems, I 
 
                     <div class="skill-area">
                         <div class="skill-area-icon">
-                            <i class="fas fa-globe"></i>
+                            <i class="fas fa-globe" aria-hidden="true"></i>
                         </div>
                         <h3>Frontend Development</h3>
                         <p>Creating responsive, user-friendly websites with modern frameworks and design principles</p>
@@ -230,7 +239,7 @@ With a strong foundation in both software development and electrical systems, I 
 
                     <div class="skill-area">
                         <div class="skill-area-icon">
-                            <i class="fa-solid fa-mug-hot"></i>
+                            <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
                         </div>
                         <h3>Full-Stack & Cloud</h3>
                         <p>Combining front-end and back-end development with API design and cloud technologies, including REST APIs, AWS, and Azure.</p>
@@ -238,7 +247,7 @@ With a strong foundation in both software development and electrical systems, I 
 
                     <div class="skill-area">
                         <div class="skill-area-icon">
-                            <i class="fas fa-robot"></i>
+                            <i class="fas fa-robot" aria-hidden="true"></i>
                         </div>
                         <h3>Integrated Systems</h3>
                         <p>Designing and developing embedded solutions with Arduino, microcontrollers, and custom IC chip integration for smart devices and automation</p>
@@ -254,7 +263,7 @@ With a strong foundation in both software development and electrical systems, I 
                 <div class="skills-container">
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-code" aria-hidden="true"></i>
                         </div>
                         <h3>Languages</h3>
                         <div class="skill-tags">
@@ -277,7 +286,7 @@ With a strong foundation in both software development and electrical systems, I 
                     
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-layer-group" aria-hidden="true"></i>
                         </div>
                         <h3>Frameworks & Libraries</h3>
                         <div class="skill-tags">
@@ -305,7 +314,7 @@ With a strong foundation in both software development and electrical systems, I 
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-tools" aria-hidden="true"></i>
                         </div>
                         <h3>Cloud & Deployment Tools</h3>
                         <div class="skill-tags">
@@ -322,7 +331,7 @@ With a strong foundation in both software development and electrical systems, I 
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">
-                            <i class="fas fa-laptop-code"></i>
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
                         </div>
                         <h3>IDEs & Platforms</h3>
                         <div class="skill-tags">
@@ -563,56 +572,56 @@ With a strong foundation in both software development and electrical systems, I 
             <div class="certifications-container">
                 <div class="certification-card">
                     <div class="certification-icon-special">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Professional Frontend Developer</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Advanced React</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>React</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Programming with JavaScript</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>TypeScript</h3>
                     <p>Issued by CodeAcademy</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Principles of UI/UX</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>HTML & CSS in Depth</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Intermediate SQL</h3>
                     <p>Issued by HackerRank</p>
@@ -620,7 +629,7 @@ With a strong foundation in both software development and electrical systems, I 
                 
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>SQL</h3>
                     <p>Issued by HackerRank</p>
@@ -628,7 +637,7 @@ With a strong foundation in both software development and electrical systems, I 
                 
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>C#</h3>
                     <p>Issued by HackerRank</p>
@@ -636,21 +645,21 @@ With a strong foundation in both software development and electrical systems, I 
                 
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Python</h3>
                     <p>Issued by HackerRank</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Coding Interview Prep</h3>
                     <p>Issued by Meta</p>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-certificate" aria-hidden="true"></i>
                     </div>
                     <h3>Version Control</h3>
                     <p>Issued by Meta</p>
@@ -706,8 +715,8 @@ With a strong foundation in both software development and electrical systems, I 
                 </div>
                 
                 <div class="contact-social">
-                    <a href="https://github.com/Evan-Varan" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/evan-r-varan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Evan-Varan" target="_blank" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/evan-r-varan/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -721,19 +730,21 @@ With a strong foundation in both software development and electrical systems, I 
     </footer>
 
     <!-- Scroll to top button -->
-    <div class="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <button class="scroll-top" aria-label ="Scroll to Top" style="border: 0px;">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script>
         // Mobile Navigation Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger')
+        const navLinks = document.querySelector('.nav-links')
 
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true'
+            hamburger.setAttribute('aria-expanded', String(!expanded))
+            hamburger.classList.toggle('active')
+            navLinks.classList.toggle('active')
+        })
 
         // Close mobile menu when clicking on a nav link
         document.querySelectorAll('.nav-links a').forEach(link => {
@@ -803,8 +814,9 @@ With a strong foundation in both software development and electrical systems, I 
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-        });
+            })
+        })
+
 
         // Reveal animations on scroll
         const revealElements = document.querySelectorAll('.skill-card, .project-card, .education-card, .certification-card, .timeline-content, .skill-area');
